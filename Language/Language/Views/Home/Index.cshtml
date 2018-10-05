@@ -1,0 +1,151 @@
+﻿@using Language.Models;
+@using Language.ViewModel;
+
+@model IndexVM
+
+<!-- HEADER START HERE -->
+<header style="background-image: url(/Public/images/index/@Model.header.Background_Image)">
+    <div class="layout">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-bg">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Home/Index">
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Menu">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Conversation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="center text-center">
+            <p>@Model.header.Before_Brand</p>
+            <h2>@Model.header.Brand_Name</h2>
+            <p>@Model.header.After_Brand</p>
+        </div>
+    </div>
+
+</header>
+<!-- HEADER END HERE -->
+
+<div class="container-fluid">
+    <!-- SECTION ABOUT START HERE -->
+    <section id="about" class="py-5">
+        <!-- <div class="container-fluid"> -->
+        <div class="row">
+            <!-- ABOUT TEXT -->
+            <div class="col-lg-6">
+                <h1 class="text-lg-right text-center">
+                    @Model.about.Header.Split(null)[0]
+                    <span class="brandname">@Model.about.Header.Split(null)[1] @Model.about.Header.Split(null)[2]</span>
+                </h1>
+                <hr class=" d-none d-lg-block" align="right">
+                <hr class=" d-block d-lg-none">
+                <p class="text-justify">@Model.about.Content</p>
+            </div>
+            <!-- ABOUT TEXT END HERE -->
+            <!-- FOR LARGE DEVICES -->
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="col-12 minipic" style="margin-bottom: 15px;">
+                            <img src="~/Public/images/index/@Model.about.Top_Left_Photo" alt="Photo not found">
+                        </div>
+                        <div class="col-12 minipic">
+                            <img src="~/Public/images/index/@Model.about.Bottom_Left_Photo" alt="Photo not found">
+                        </div>
+                    </div>
+                    <div class="col-6 p-0">
+                        <img src="~/Public/images/index/@Model.about.Right_Photo" alt="Photo not found">
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOR SMALL DEVICES -->
+            <div class="col-lg-6 d-block d-lg-none mt-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 minipic">
+                                <img src="~/Public/images/index/@Model.about.Top_Left_Photo" alt="Photo not found">
+                            </div>
+                            <div class="col-6 minipic">
+                                <img src="~/Public/images/index/@Model.about.Bottom_Left_Photo" alt="Photo not found">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 minipic">
+                        <img src="~/Public/images/index/@Model.about.Right_Photo" alt="Photo not found">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+
+    </section>
+    <!-- SECTION ABOUT END HERE -->
+    <!-- SECTION CONVERSATION START HERE -->
+    <section id="conversation" class="py-5">
+        <!-- <div class="container-fluid"> -->
+        <div class="row">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="~/Public/images/index/@Model.conversation.Image" alt="Photo not found" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="center text-center">
+                    <h2>@Model.conversation.Header</h2>
+                    <p>@Model.conversation.Content</p>
+                </div>
+            </div>
+            <!-- FOR SMALL DEVICES -->
+            <div class="col-12 d-block d-lg-none">
+                <img src="~/Public/images/index/@Model.conversation.Image" alt="Photo not found" />
+                <div class="layout">
+                    <div class="center text-center" style="color: white;">
+                        <h2>@Model.conversation.Header</h2>
+                        <p>@Model.conversation.Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </section>
+    <!-- SECTION CONVERSATION END HERE -->
+</div>
+
+<!-- SECTION MENU START HERE -->
+<section id="menu" class="py-5">
+    <div class="container">
+        <h1 class="text-center mb-5">Menu</h1>
+        <div class="row">
+            @Html.Partial("_Foodcard", Model.foodList)
+        </div>
+        <div class="text-center">
+            <a href="/Home/Menu" class="btn d-none d-lg-inline-block">See All</a>
+            <a href="/Home/MobileMenu" class="btn d-inline-block d-lg-none">See All</a>
+        </div>
+    </div>
+</section>
+<!-- SECTION MENU END HERE -->

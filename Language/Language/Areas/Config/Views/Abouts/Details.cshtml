@@ -1,0 +1,47 @@
+﻿@model Language.Models.About
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4 class="text-right">About</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Header)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Header)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+    </dl>
+
+    <div class="row">
+        <div class="col-md-4 col-xs-6" style="margin-bottom: 10px;">
+            <b>@Html.DisplayNameFor(model => model.Top_Left_Photo)</b>
+            <img class="img-thumbnail" src="~/Public/images/index/@Model.Top_Left_Photo" alt="Photo not found" />
+        </div>
+
+        <div class="col-md-4 col-xs-6" style="margin-bottom: 10px;">
+            <b>@Html.DisplayNameFor(model => model.Bottom_Left_Photo)</b>
+            <img class="img-thumbnail" src="~/Public/images/index/@Model.Bottom_Left_Photo" alt="Photo not found" />
+        </div>
+
+        <div class="col-md-4 col-xs-6" style="margin-bottom: 10px;">
+            <b>@Html.DisplayNameFor(model => model.Right_Photo)</b>
+            <img class="img-thumbnail" src="~/Public/images/index/@Model.Right_Photo" alt="Photo not found" />
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning"})
+</p>

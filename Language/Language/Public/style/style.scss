@@ -1,0 +1,266 @@
+@import "defaults";
+@import "foodcard";
+
+// HEADER START HERE
+header{
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+
+    .navbar-bg{
+        background: rgba($color: black, $alpha: 0.5)
+    }
+
+    .center{
+        color: white;
+
+        h2{
+            font-family: 'Righteous', cursive;
+            font-size: 5em;
+            margin: -0.8rem auto 0.8rem;
+        }
+    }
+}
+
+// ABOUT START HERE
+#about{
+
+    img{
+        @extend %img;
+    }
+
+    .brandname{
+        color: $defaultcolor;
+    }
+
+    .col-lg-6{
+        min-height: 200px;
+    }
+
+    .minipic{
+        height: 180px;
+        padding: 0;
+    }
+
+    hr{
+        width: 50%;
+        border-top: 2px solid;
+    }
+
+    .d-lg-none{
+        .col-6:first-of-type{
+            background-image: url("../images/beef-bread-bun-750075.jpg");
+            border-left: 15px solid white;
+            border-right: 3px solid white;
+            background-position: left
+        }
+
+        .col-6:last-of-type{
+            background-image: url("../images/blur-chef-close-up-671956.jpg");
+            border-right: 15px solid white;
+            border-left: 3px solid white;
+        }
+
+        .col-12:last-of-type{
+            background-image: url(../images/buffet-chicken-cooking-5938.jpg);
+            border-top: 6px solid white;
+            border-left: 15px solid white;
+            border-right: 15px solid white;
+        }
+    }
+
+}
+
+// CONVERSATION START HERE
+#conversation {
+    img {
+        @extend %img;
+    }
+
+    .row > .col-lg-6 {
+        min-height: 350px;
+    }
+
+    .col-lg-6:first-of-type, .col-12 {
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .col-12 {
+        padding: 0;
+        height: 300px;
+        background-attachment: fixed;
+    }
+
+    .center {
+        width: 90%;
+    }
+}
+
+//MENU START HERE
+#menu{
+    .btn{
+        border-color: $defaultcolor;
+        color: $defaultcolor;
+
+        &:hover{
+            background: $defaultcolor;
+            color: white;
+        }
+    }
+}
+
+//MENU PAGE (EXTERNAL PAGE)
+#menuPage {
+    .nav-link {
+        overflow: hidden;
+
+        img {
+            width: 45px;
+            height: 45px;
+            transition: .4s;
+            @extend %img;
+            box-shadow: none;
+        }
+
+        small {
+            text-align: center;
+            transition: .4s;
+            color: white;
+            left: -100%;
+            opacity: 0;
+        }
+
+        &:hover{
+            small{
+                left: 50%;
+                opacity: 1;
+            }
+
+            img{
+                left: 200%;
+            }
+        }
+    }
+
+    .tab-content {
+        background: $defaultcolor;
+        min-height: 2000px;
+    }
+}
+
+//MENU PAGE (MOBILE VERSION)
+#mobilemenuPage{
+    button{
+        color: white;
+        font-family: 'Righteous', cursive;
+    }
+
+    .card-header{
+        background: $secondcolor;
+    }
+
+    .activeCard.card-header{
+        background: $defaultcolor;
+    }
+}
+
+//ERROR PAGE
+#errorPage{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/404-error-page-peapod.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+footer{
+    background: $secondcolor;
+    color: white;
+
+    .contact{
+        a{
+            margin: 0 5px;
+            text-align: center;
+            color: $secondcolor;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 2px solid transparent;
+            background: white;
+            border-radius: 100%;
+            transition: .5s;
+
+            &:hover{
+                background: transparent;
+                border-color: white;
+                color: white;
+            }
+        }
+    }
+
+    .col-lg-6{
+        padding: 0;
+
+        iframe{
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+    
+
+    h3{
+        // color: $defaultcolor;
+        font-weight: bold;
+    }
+
+    .col-lg-3, .col-lg-6{
+        min-height: 320px;
+    }
+}
+
+// MEDIA QUERIES
+@media screen and (min-width: 992px){
+    #menuPage{
+        .col-lg-1{
+            padding-right: 0;
+            padding-left: 35px;
+        }
+
+        .nav-pills{
+            .nav-link{
+                padding: 0;
+                position: relative;
+                border-radius: 100%;
+                background-color: $secondcolor;
+                transition: .3s;
+                background-size: cover;
+                background-position: center center;
+    
+                &.active{
+                    background: $defaultcolor !important;
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+
+                &:not(:last-child){
+                    margin-bottom: 10px;
+                }
+            }
+
+            span{
+                position: absolute;
+                font-family: 'Righteous', cursive;
+                color: white;
+                font-size: .9em;
+                transition: .3s;
+                transition-delay: .1s;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+﻿@model Language.Models.Header
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm("Edit", "Headers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4 class="text-right">Edit Header</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <!-- #region Edit Image -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.Background_Image, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-2">
+            <img src="~/Public/images/index/@Model.Background_Image" alt="Photo not found" class="img-thumbnail" />
+        </div>
+        <div class="col-md-8">
+            <input type="file" name="Background_Image" />
+            <input type="hidden" name="ImageName" value="@Model.Background_Image" />
+            @Html.ValidationMessageFor(model => model.Background_Image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <!-- #endregion -->
+    <!-- #region Before Brand -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.Before_Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.Before_Brand, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Before_Brand, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-1">
+            <p class="countHolder"></p>
+        </div>
+    </div>
+    <!-- #endregion -->
+    <!-- #region Brand Name -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.Brand_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.Brand_Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Brand_Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-1">
+            <p class="countHolder"></p>
+        </div>
+    </div>
+    <!-- #endregion -->
+    <!-- #region After Brand -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.After_Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.After_Brand, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.After_Brand, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-1">
+            <p class="countHolder"></p>
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Details", "Details/1", null, new { @class = "btn btn-default" })
+</div>

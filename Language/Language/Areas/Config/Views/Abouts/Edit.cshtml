@@ -1,0 +1,85 @@
+﻿@model Language.Models.About
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "Abouts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4 class="text-right">Edit About Section</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Header, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Header, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1">
+                <p class="countHolder"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-9">
+                @Html.TextAreaFor(model => model.Content, new { @class = "form-control", @rows = "7" })
+                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1">
+                <p class="countHolder"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Top_Left_Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <img class="img-thumbnail" src="~/Public/images/index/@Model.Top_Left_Photo" alt="Photo not found" />
+            </div>
+            <div class="col-md-8">
+                <input type="file" name="Top_Left_Photo" />
+                <input type="hidden" name="Top_Left_Photo_String" value="@Model.Top_Left_Photo" />
+                @Html.ValidationMessageFor(model => model.Top_Left_Photo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Bottom_Left_Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <img class="img-thumbnail" src="~/Public/images/index/@Model.Bottom_Left_Photo" alt="Photo not found" />
+            </div>
+            <div class="col-md-8">
+                <input type="file" name="Bottom_Left_Photo" />
+                <input type="hidden" name="Bottom_Left_Photo_String" value="@Model.Bottom_Left_Photo" />
+                @Html.ValidationMessageFor(model => model.Bottom_Left_Photo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Right_Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <img class="img-thumbnail" src="~/Public/images/index/@Model.Right_Photo" alt="Photo not found" />
+            </div>
+            <div class="col-md-8">
+                <input type="file" name="Right_Photo" />
+                <input type="hidden" name="Right_Photo_String" value="@Model.Right_Photo" />
+                @Html.ValidationMessageFor(model => model.Right_Photo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Details", "Details/1", null, new { @class = "btn btn-default" })
+</div>

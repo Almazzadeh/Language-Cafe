@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Language.Models.Food>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p class="text-right">
+    <a href="/Config/Food_Category/Index" class="btn btn-info">Food Categories</a>
+    <a href="/Config/Foods/Create" class="btn btn-info">Add Food</a>
+</p>
+<table id="foodTable" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            Category Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Public/images/food/@item.Image" alt="Photo not found" class="img-thumbnail" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                ₼@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food_Category.Name)
+            </td>
+            <td class="text-right">
+                <a title="Edit Food" class="foodCrud" href="/Config/Foods/Edit/@item.Id"><i class="fas fa-pencil-alt"></i></a>
+                <a title="Details Food" class="foodCrud" href="/Config/Foods/Details/@item.Id"><i class="fas fa-info"></i></a>
+                <a title="Delete Food" class="foodCrud removeFood" href="#" data-FoodId="@item.Id" data-FoodName="@item.Name" data-Image="@item.Image"><i class="far fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@* MODAL FOR DELETE FOOD *@
+<input type="hidden" id="foodIdHolder" />
+<input type="hidden" id="foodNameHolder" />
+
+<div id="confirmModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 style="color: #d43f3a;" class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <span></span>?</p>
+                <img class="img-thumbnail" data-folder="food" src="" alt="Photo not found" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger confirmbtn">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* ---SUCCESS MODAL--- *@
+<div id="successModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Success</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><span></span> removed successfully from food list</p>
+                <img style="width: 15%;" src="~/Areas/Config/Public/Image/checked.png" alt="Photo not fouond" class="img-fluid" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="window.location.reload();">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ---ERROR MODAL--- *@
+<div id="errorModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Something went wrong</p>
+                <img style="width: 15%;" src="~/Areas/Config/Public/Image/error.png" alt="Photo not fouond" class="img-fluid" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

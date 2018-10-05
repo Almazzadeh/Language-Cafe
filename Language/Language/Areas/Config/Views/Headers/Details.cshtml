@@ -1,0 +1,45 @@
+﻿@model Language.Models.Header
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4 class="text-right">Header</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Background_Image)
+        </dt>
+
+        <dd>
+            <img src="~/Public/images/index/@Model.Background_Image" class="img-thumbnail" alt="Photo not found" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Before_Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Before_Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.After_Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.After_Brand)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning"})
+</p>

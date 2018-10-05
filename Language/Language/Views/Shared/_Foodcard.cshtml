@@ -1,0 +1,24 @@
+﻿@using Language.Models;
+
+@model IEnumerable<Food>
+
+@foreach (Food fd in Model)
+{
+    <div class="col-6 col-md-4 col-lg-3">
+        <div class="foodcard border border-secondary">
+            <div class="foodimage">
+                <span class="d-block d-lg-none">₼@fd.Price.ToString()</span>
+                <img src="~/Public/images/food/@fd.Image" alt="Photo not found">
+            </div>
+            <div class="my-2">
+                <small class="foodcategory px-2 py-1 text-muteds text-truncate">@fd.Food_Category.Name</small>
+                <div class="px-2 nameprice d-flex justify-content-between align-items-end">
+                    <h4 class="text-truncate">@fd.Name</h4>
+                    <span class="text-truncate d-none d-lg-block">₼@fd.Price.ToString()</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+}
+

@@ -1,0 +1,302 @@
+.foodcard .foodimage img, #about img, #conversation img, #menuPage .nav-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  box-shadow: 2px 2px 5px #555;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: url("../images/white-wall-texture-background.jpg");
+}
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #263238;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+  background-color: #D62929;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #D62929;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+.layout {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  left: 0;
+  top: 0;
+}
+
+#preloader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: white;
+  z-index: 999999;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.foodcard {
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: .6s;
+  box-shadow: 2px 2px 5px transparent;
+}
+.foodcard:hover {
+  box-shadow: 2px 2px 13px gray;
+}
+.foodcard .foodimage {
+  position: relative;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: inset 2px 2px 5px white;
+}
+.foodcard .foodimage span {
+  position: absolute;
+  border-radius: 100%;
+  color: white;
+  width: 55px;
+  font-size: 0.8em;
+  top: 1px;
+  right: 1px;
+  height: 55px;
+  text-align: center;
+  line-height: 55px;
+  background: #D62929;
+  z-index: 1;
+}
+.foodcard .foodimage img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.foodcard .nameprice h4 {
+  font-size: 1.3rem;
+  width: 70%;
+}
+.foodcard .nameprice span {
+  color: #D62929;
+  text-align: right;
+  font-weight: bold;
+  width: 30%;
+}
+
+@media screen and (max-width: 991.9px) {
+  .foodcard .nameprice h4 {
+    width: 100% !important;
+  }
+}
+header {
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+header .navbar-bg {
+  background: rgba(0, 0, 0, 0.5);
+}
+header .center {
+  color: white;
+}
+header .center h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 5em;
+  margin: -0.8rem auto 0.8rem;
+}
+
+#about .brandname {
+  color: #D62929;
+}
+#about .col-lg-6 {
+  min-height: 200px;
+}
+#about .minipic {
+  height: 180px;
+  padding: 0;
+}
+#about hr {
+  width: 50%;
+  border-top: 2px solid;
+}
+#about .d-lg-none .col-6:first-of-type {
+  background-image: url("../images/beef-bread-bun-750075.jpg");
+  border-left: 15px solid white;
+  border-right: 3px solid white;
+  background-position: left;
+}
+#about .d-lg-none .col-6:last-of-type {
+  background-image: url("../images/blur-chef-close-up-671956.jpg");
+  border-right: 15px solid white;
+  border-left: 3px solid white;
+}
+#about .d-lg-none .col-12:last-of-type {
+  background-image: url(../images/buffet-chicken-cooking-5938.jpg);
+  border-top: 6px solid white;
+  border-left: 15px solid white;
+  border-right: 15px solid white;
+}
+
+#conversation .row > .col-lg-6 {
+  min-height: 350px;
+}
+#conversation .col-lg-6:first-of-type, #conversation .col-12 {
+  background-size: cover;
+  background-position: center center;
+}
+#conversation .col-12 {
+  padding: 0;
+  height: 300px;
+  background-attachment: fixed;
+}
+#conversation .center {
+  width: 90%;
+}
+
+#menu .btn {
+  border-color: #D62929;
+  color: #D62929;
+}
+#menu .btn:hover {
+  background: #D62929;
+  color: white;
+}
+
+#menuPage .nav-link {
+  overflow: hidden;
+}
+#menuPage .nav-link img {
+  width: 45px;
+  height: 45px;
+  transition: .4s;
+  box-shadow: none;
+}
+#menuPage .nav-link small {
+  text-align: center;
+  transition: .4s;
+  color: white;
+  left: -100%;
+  opacity: 0;
+}
+#menuPage .nav-link:hover small {
+  left: 50%;
+  opacity: 1;
+}
+#menuPage .nav-link:hover img {
+  left: 200%;
+}
+#menuPage .tab-content {
+  background: #D62929;
+  min-height: 2000px;
+}
+
+#mobilemenuPage button {
+  color: white;
+  font-family: 'Righteous', cursive;
+}
+#mobilemenuPage .card-header {
+  background: #263238;
+}
+#mobilemenuPage .activeCard.card-header {
+  background: #D62929;
+}
+
+#errorPage {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/404-error-page-peapod.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+footer {
+  background: #263238;
+  color: white;
+}
+footer .contact a {
+  margin: 0 5px;
+  text-align: center;
+  color: #263238;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 2px solid transparent;
+  background: white;
+  border-radius: 100%;
+  transition: .5s;
+}
+footer .contact a:hover {
+  background: transparent;
+  border-color: white;
+  color: white;
+}
+footer .col-lg-6 {
+  padding: 0;
+}
+footer .col-lg-6 iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+footer h3 {
+  font-weight: bold;
+}
+footer .col-lg-3, footer .col-lg-6 {
+  min-height: 320px;
+}
+
+@media screen and (min-width: 992px) {
+  #menuPage .col-lg-1 {
+    padding-right: 0;
+    padding-left: 35px;
+  }
+  #menuPage .nav-pills .nav-link {
+    padding: 0;
+    position: relative;
+    border-radius: 100%;
+    background-color: #263238;
+    transition: .3s;
+    background-size: cover;
+    background-position: center center;
+  }
+  #menuPage .nav-pills .nav-link.active {
+    background: #D62929 !important;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+  #menuPage .nav-pills .nav-link:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  #menuPage .nav-pills span {
+    position: absolute;
+    font-family: 'Righteous', cursive;
+    color: white;
+    font-size: .9em;
+    transition: .3s;
+    transition-delay: .1s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

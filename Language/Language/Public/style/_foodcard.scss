@@ -1,0 +1,66 @@
+.foodcard{
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: .6s;
+    box-shadow: 2px 2px 5px transparent;
+
+    &:hover{
+        box-shadow: 2px 2px 13px gray;
+    }
+
+    .foodimage{
+        position: relative;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        box-shadow: inset 2px 2px 5px white;
+
+        span{
+            position: absolute;
+            border-radius: 100%;
+            color: white;
+            width: 55px;
+            font-size: 0.8em;
+            top: 1px;
+            right: 1px;
+            height: 55px;
+            text-align: center;
+            line-height: 55px;
+            background: $defaultcolor;
+            z-index: 1;
+        }
+
+        img{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            @extend %img;
+        }
+    }
+
+    .nameprice{
+        h4{
+            font-size: 1.3rem;
+            width: 70%;
+        }
+
+        span{
+            color: $defaultcolor;
+            text-align: right;
+            font-weight: bold;
+            width: 30%;
+        }
+    }
+}
+
+// MEDIA QUERIES
+
+@media screen and (max-width: 991.9px){
+    .foodcard{
+        .nameprice h4{
+            width: 100% !important;
+        }
+    }
+}

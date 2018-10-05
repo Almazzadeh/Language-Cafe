@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Language Cafe - Admin Panel</title>
+    <link rel="shortcut icon" href="~/Areas/Config/Public/Image/configicon_WSI_icon.ico" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link href="~/Areas/Config/Public/style.css" rel="stylesheet" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+
+            <div class="sidebar-header">
+                <h5>Language Cafe</h5>
+                <small>Admin Panel</small>
+
+                <!-- #region Sidemenu Hider -->
+                <div id="dismiss">
+                    <i class="fas fa-times"></i>
+                </div>
+                <!-- #endregion -->
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true">Home Page</a>
+                    <ul class="collapse in list-unstyled" id="homeSubmenu">
+                        <li><a href="/Config/Headers/Details/1" class="@(ViewBag.headeractive != null ? "active" : "")">Header</a></li>
+                        <li><a href="/Config/Abouts/Details/1" class="@(ViewBag.aboutactive != null ? "active" : "")">About</a></li>
+                        <li><a href="/Config/Conversations/Details/1" class="@(ViewBag.conversationactive != null ? "active" : "")">Conversation</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/Config/Foods/Index" class="@(ViewBag.foodactive != null ? "active" : "")">Foods</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Contact</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li><a href="#">Phone & Address</a></li>
+                        <li><a href="#">Social Network</a></li>
+                        <li><a href="#">Map</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+            <button type="button" id="sidebarCollapse">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="overlay"></div>
+
+
+    <!-- jQuery CDN -->
+    <script src="~/Public/script/jquery.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').fadeOut();
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').fadeIn();
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    @RenderSection("deleteConfirmed", required: false)
+
+    <script src="~/Areas/Config/Public/admin.js"></script>
+</body>
+</html>
